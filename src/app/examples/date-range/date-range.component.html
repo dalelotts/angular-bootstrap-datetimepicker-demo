@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col">
+    <div class="form-group">
+      <label for="startDate">Start Date:</label>
+      <div class="input-group">
+        <input id="startDate" type="text" class="form-control" aria-label="Start date" [(ngModel)]="startDate">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary dropdown-toggle start-date" type="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false"><i class="oi oi-calendar"></i></button>
+          <div class="dropdown-menu" (click)="keepDropDownOpen($event)">
+            <div style="width:360px;">
+              <dl-date-time-picker [(ngModel)]="startDate" (change)="startDateSelected($event)"
+                                   [selectFilter]="startDateFilter"></dl-date-time-picker>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="endDate">Minimum duration:</label>
+      <div class="input-group">
+        <input id="endDate" type="text" class="form-control" aria-label="End date" [(ngModel)]="endDate">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary dropdown-toggle end-date" type="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false"><i class="oi oi-calendar"></i></button>
+          <div class="dropdown-menu" (click)="keepDropDownOpen($event)">
+            <div style="width:360px;">
+              <dl-date-time-picker [(ngModel)]="endDate" [(startDate)]="startDate" (change)="endDateSelected($event)"
+                                   [selectFilter]="endDateFilter"></dl-date-time-picker>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="minDuration">Minimum duration (minutes):</label>
+      <input id="minDuration" type="number" class="form-control" aria-label="Minimum duration" [(ngModel)]="minDuration">
+    </div>
+    <div class="form-check">
+      <input id="disablePastDates" type="checkbox" class="form-check-input" [(ngModel)]="disablePastDates">
+      <label class="form-check-label" for="disablePastDates">Disable past dates?</label>
+      <small class="form-text text-muted">Changing this value <em>does not</em> cause the date/time piker to re-render.
+        To see the changes take effect, change the current picker view.
+      </small>
+    </div>
+  </div>
+
+  <div class="col">
+    <p>Date Ranges add a more complexity. In this example, I try to provide an implementation that fulfils the following
+      requirements.</p>
+    <ul>
+      <li>Use standard Bootstrap 4 functionality - no third party libraries.</li>
+      <li>Start date must be before end date.</li>
+      <li>End date must be equal to or greater than start date.</li>
+      <li>The user is able to select start/end dates in any order.</li>
+      <li>If, when selecting the start date, the end dates is before the start date then the end
+        date will be cleared.
+      </li>
+      <li>Able to specify a minimum time duration in minutes.</li>
+      <li>Optionally: disable selecting dates in the past...local time only.</li>
+    </ul>
+    <p>Of course, your requirements are likely different but hopefully this example demonstrates that event complex
+      functionality can be implemented easily with this component.</p>
+  </div>
+</div>
