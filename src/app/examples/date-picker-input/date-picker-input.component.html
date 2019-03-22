@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col">
+    <div class="form-group">
+      <label for="date-input">Date:</label>
+      <div class="input-group">
+        <input id="date-input" type="text" class="form-control" aria-label="Date" required
+               dlDateTimeInput
+               [dlDateTimeInputFilter]="dateInputFilter"
+               [(ngModel)]="enteredDate">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary dropdown-toggle date-dropdown" type="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false"><i class="oi oi-calendar"></i></button>
+          <div class="dropdown-menu" (click)="keepDropDownOpen($event)">
+            <div style="width:360px;">
+              <dl-date-time-picker [(ngModel)]="enteredDate" (change)="dateSelected($event)"
+                                   [selectFilter]="datePickerFilter"></dl-date-time-picker>
+            </div>
+          </div>
+        </div>
+        <div class="invalid-feedback">
+          Please enter or choose a date and time after the current time.
+        </div>
+      </div>
+    </div>
+    <div class="form-check">
+      <input id="disablePastDates" type="checkbox" class="form-check-input" [(ngModel)]="disablePastDates">
+      <label class="form-check-label" for="disablePastDates">Disable past dates?</label>
+      <small class="form-text text-muted">Changing this value <em>does not</em> cause the date/time piker to re-render.
+        To see the changes take effect, change the current picker view.
+      </small>
+    </div>
+    <br>
+    <p>Entered date: <code>{{enteredDate}}</code>
+      <br>
+      <small class="form-text text-muted">The text above, if present, is the string representation of a
+        <code>Date</code> object in the model, the format is determined by <code>Date.protoype.toString()</code>.
+      </small>
+    </p>
+  </div>
+
+  <div class="col">
+    <p>This example combines an <i>input</i>, <code>dl-date-time-input</code> directive, a bootstrap dropdown,
+      and the <code>dl-date-time-picker</code> component.</p>
+    <p>The <code>dl-date-time-picker</code> is completely unaware that it is contained in a dropdown, so you will need
+      to write some code to close the dropdown when a date is selected by the user. This is an intentional design
+      decision because it allows the developer using this component to use <i>any</i> dropdown they like.
+    </p>
+
+    <p>Specifically, when using the bootstrap dropdown, the code will have to track the <i>open</i>
+      state of the dropdown by listening for <code>show.bs.dropdown</code> and <code>hide.bs.dropdown</code>
+      events emitted by bootstrap's dropdown.</p>
+
+    <p><strong>Nota bene</strong> The interactions between keyboard entry of the date, the date-picker
+      selection of a date, and validation of the both input sources is not included in this example.
+      The simplest solution is to avoid keyboard input; if that will work for your use case.</p>
+  </div>
+</div>

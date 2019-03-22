@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {DateRangeComponent} from './date-range.component';
-import {DlDateTimePickerModule, DlDateTimeDateModule, DlDateTimeInputModule} from 'angular-bootstrap-datetimepicker';
+import {DatePickerInputComponent} from './date-picker-input.component';
+import {DlDateTimeDateModule, DlDateTimeInputModule, DlDateTimePickerModule} from 'angular-bootstrap-datetimepicker';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 
@@ -15,8 +15,8 @@ import {FormsModule} from '@angular/forms';
     FormsModule,
   ],
   declarations: [
-    DateRangeComponent,
+    DatePickerInputComponent,
   ],
 })
-export class DateRangeModule {
+export class DatePickerInputModule {
 }

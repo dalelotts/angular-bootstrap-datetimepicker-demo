@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col">
+    <div class="form-group">
+      <label for="enterDate">Enter a Date:</label>
+      <input id="enterDate"
+             type="text"
+             class="form-control"
+             aria-label="Enter a date"
+             dlDateTimeInput
+             [(ngModel)]="enteredDate" [placeholder]="placeHolder">
+      <small class="form-text text-muted">Use the keyboard to enter a date in any supported format.</small>
+    </div>
+    <p>Entered date: <code>{{enteredDate}}</code>
+      <br>
+      <small class="form-text text-muted">The text above, if present, is the string representation of a
+        <code>Date</code> object in the model, the format is determined by <code>Date.protoype.toString()</code>.
+      </small>
+    </p>
+    <p>
+      You can use any of the following input formats.
+    </p>
+    <ul>
+      <li *ngFor="let format of inputFormats">{{format}}</li>
+    </ul>
+    <p>See moment's <a href="https://momentjs.com/guides/#/parsing/multiple-formats/">parsing multiple formats</a>
+      page for more information on how these date formats are used.</p>
+  </div>
+  <div class="col">
+    <p>The <code>dlDateTimeInput</code> directive allows the user to enter dates, in multiple formats, using only the
+      keyboard.
+    </p>
+    <p>Regardless of the format used to <i>enter</i> the date, the <i>display</i> format is always the same.
+    In this example, the dates is displayed using "<code>{{displayFormat}}</code>" regardless of the format used to enter the date.</p>
+    <p>The supported input formats are defined in <code>DL_DATE_TIME_INPUT_FORMATS</code>.
+    <p>The display format is defined in <code>DL_DATE_TIME_DISPLAY_FORMAT</code>.
+    </p>
+  </div>
+</div>

@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "preserveSymlinks": true,
             "outputPath": "dist/angular-bootstrap-datetimepicker-demo",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -23,10 +24,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
-            "scripts": [
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -75,8 +75,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [
-            ],
+            "scripts": [],
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -125,5 +124,10 @@
       }
     }
   },
-  "defaultProject": "angular-bootstrap-datetimepicker-demo"
+  "defaultProject": "angular-bootstrap-datetimepicker-demo",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

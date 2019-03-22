@@ -1,34 +1,46 @@
 <div class="row">
   <div class="col">
     <div class="form-group">
-      <label for="startDate">Start Date:</label>
+      <label for="startDate">Start:</label>
       <div class="input-group">
-        <input id="startDate" type="text" class="form-control" aria-label="Start date" [(ngModel)]="startDate">
+        <input id="startDate" type="text" class="form-control" aria-label="Start date"
+               dlDateTimeInput
+               [dlDateTimeInputFilter]="startDateInputFilter"
+               [(ngModel)]="startDate">
         <div class="input-group-append">
           <button class="btn btn-outline-secondary dropdown-toggle start-date" type="button" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false"><i class="oi oi-calendar"></i></button>
           <div class="dropdown-menu" (click)="keepDropDownOpen($event)">
             <div style="width:360px;">
               <dl-date-time-picker [(ngModel)]="startDate" (change)="startDateSelected($event)"
-                                   [selectFilter]="startDateFilter"></dl-date-time-picker>
+                                   [selectFilter]="startDatePickerFilter"></dl-date-time-picker>
             </div>
           </div>
+        </div>
+        <div class="invalid-feedback">
+          Please enter or choose a start time after the current time.
         </div>
       </div>
     </div>
     <div class="form-group">
-      <label for="endDate">Minimum duration:</label>
+      <label for="endDate">End:</label>
       <div class="input-group">
-        <input id="endDate" type="text" class="form-control" aria-label="End date" [(ngModel)]="endDate">
+        <input id="endDate" type="text" class="form-control" aria-label="End date"
+               dlDateTimeInput
+               [dlDateTimeInputFilter]="endDateInputFilter"
+               [(ngModel)]="endDate">
         <div class="input-group-append">
           <button class="btn btn-outline-secondary dropdown-toggle end-date" type="button" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false"><i class="oi oi-calendar"></i></button>
           <div class="dropdown-menu" (click)="keepDropDownOpen($event)">
             <div style="width:360px;">
               <dl-date-time-picker [(ngModel)]="endDate" [(startDate)]="startDate" (change)="endDateSelected($event)"
-                                   [selectFilter]="endDateFilter"></dl-date-time-picker>
+                                   [selectFilter]="endDatePickerFilter"></dl-date-time-picker>
             </div>
           </div>
+        </div>
+        <div class="invalid-feedback">
+          Please enter or choose an end time after the start time.
         </div>
       </div>
     </div>
@@ -46,20 +58,21 @@
   </div>
 
   <div class="col">
-    <p>Date Ranges add a more complexity. In this example, I try to provide an implementation that fulfils the following
+    <p>Date Ranges add complexity. In this example, I try to provide an implementation that fulfils the following
       requirements.</p>
     <ul>
       <li>Use standard Bootstrap 4 functionality - no third party libraries.</li>
-      <li>Start date must be before end date.</li>
-      <li>End date must be equal to or greater than start date.</li>
-      <li>The user is able to select start/end dates in any order.</li>
-      <li>If, when selecting the start date, the end dates is before the start date then the end
+      <li>Date picker will disable start dates after the end date, if end date is set.</li>
+      <li>Date picker will disable end dates less than the start date, if start date is set.</li>
+      <li>Date picker will allow the user to select start/end dates in any order.</li>
+      <li>If, when picking the start date, the end dates is before the start date then the end
         date will be cleared.
       </li>
-      <li>Able to specify a minimum time duration in minutes.</li>
+      <li>Able to specify a minimum time duration in minutes and have the date picker enforce the duration for end dates.</li>
       <li>Optionally: disable selecting dates in the past...local time only.</li>
+      <li><strong>No support</strong> for keyboard entry of dates.</li>
     </ul>
-    <p>Of course, your requirements are likely different but hopefully this example demonstrates that event complex
+    <p>Of course, your requirements are likely different but hopefully this example demonstrates that complex
       functionality can be implemented easily with this component.</p>
   </div>
 </div>

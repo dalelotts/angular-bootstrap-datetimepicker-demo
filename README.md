@@ -1,4 +1,8 @@
-# AngularBootstrapDatetimepickerDemo
+# Angular Bootstrap Datetime Picker Demo Application
+
+[Documentation](https://dalelotts.github.io/angular-bootstrap-datetimepicker)
+
+[GitHub](https://github.com/dalelotts/angular-bootstrap-datetimepicker)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.4.
 

@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {DlDateTimePickerModule, DlDateTimeDateModule} from 'angular-bootstrap-datetimepicker';
+import {FormatInputComponent} from './format-input.component';
+import {DlDateTimeDateModule, DlDateTimeInputModule} from 'angular-bootstrap-datetimepicker';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
-import {HomeComponent} from './home.component';
 
 @NgModule({
   imports: [
@@ -11,11 +11,12 @@ import {HomeComponent} from './home.component';
     BrowserModule,
     FormsModule,
     DlDateTimeDateModule,
-    DlDateTimePickerModule
+    DlDateTimeInputModule
   ],
   declarations: [
-    HomeComponent,
+    FormatInputComponent,
   ],
 })
-export class HomeModule {
+export class FormatInputModule {
+
 }
