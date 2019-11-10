@@ -69,7 +69,7 @@ export class DatePickerInputComponent implements AfterViewInit {
     return this.disablePastDates
       ? dateButton.value >= moment().startOf(viewName as unitOfTime.StartOf).valueOf()
       : true;
-  };
+  }
 
   /**
    * Used to keep the Bootstrap drop-down open while clicking on the date/time picker.

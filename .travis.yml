@@ -1,0 +1,17 @@
+sudo: required
+dist: xenial
+language: node_js
+notifications:
+  email: false
+node_js:
+  - '10'
+services:
+  - xvfb
+addons:
+  chrome: stable
+script:
+  - npm run test
+branches:
+  except:
+    - "/^v\\d+\\.\\d+\\.\\d+$/"
+    - gh-pages

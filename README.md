@@ -4,6 +4,13 @@
 
 [GitHub](https://github.com/dalelotts/angular-bootstrap-datetimepicker)
 
+## Examples
+
+The [src/app/examples](./src/app/examples) folder contains examples how you can use the date/time picker in your project.
+
+Please consider contributing to the examples so others can see how to use this component.
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.4.
 
 ## Development server

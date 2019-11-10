@@ -60,7 +60,7 @@ export class DateRangeComponent implements AfterViewInit {
 
   endDateInputFilter = (value: (number | null | undefined)) => {
     return this.endDatePickerFilter({value} as DateButton, 'minute');
-  };
+  }
 
 
   /**
@@ -90,7 +90,7 @@ export class DateRangeComponent implements AfterViewInit {
     return this.disablePastDates
       ? dateButton.value >= now && dateButton.value >= startTime
       : dateButton.value >= startTime;
-  };
+  }
 
 
   /**
@@ -106,7 +106,7 @@ export class DateRangeComponent implements AfterViewInit {
 
   startDateInputFilter = (value: (number | null | undefined)) => {
     return this.startDatePickerFilter({value} as DateButton, 'minute');
-  };
+  }
 
 
   /**
@@ -127,7 +127,7 @@ export class DateRangeComponent implements AfterViewInit {
     return this.disablePastDates
       ? dateButton.value >= moment().startOf(viewName as unitOfTime.StartOf).valueOf()
       : true;
-  };
+  }
 
   /**
    * Close the End Date drop-down when endDate is selected.

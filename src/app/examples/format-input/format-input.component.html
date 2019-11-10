@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col">
     <div class="form-group">
-      <label for="enterDate">Enter a Date:</label>
-      <input id="enterDate"
+      <label for="dateInput">Enter a Date:</label>
+      <input id="dateInput"
              type="text"
              class="form-control"
              aria-label="Enter a date"
@@ -10,7 +10,7 @@
              [(ngModel)]="enteredDate" [placeholder]="placeHolder">
       <small class="form-text text-muted">Use the keyboard to enter a date in any supported format.</small>
     </div>
-    <p>Entered date: <code>{{enteredDate}}</code>
+    <p>Entered date: <code id="enteredDate">{{enteredDate}}</code>
       <br>
       <small class="form-text text-muted">The text above, if present, is the string representation of a
         <code>Date</code> object in the model, the format is determined by <code>Date.protoype.toString()</code>.
